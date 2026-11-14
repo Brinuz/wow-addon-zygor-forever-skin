@@ -1,0 +1,75 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+
+	<!--
+	The Blizzard window drawn behind Zygor's viewer, built like Forever's Professions
+	window: PortraitFrameTexturedBaseTemplate without the portrait, its background
+	swapped for Profession-Background-Overview (Chrome.lua, as ProfessionsMixin:OverrideArt
+	does), the metal nine-slice of ButtonFrameTemplateNoPortrait, a gold title and
+	Blizzard's close button. Placed at the viewer's own frame level, so Zygor's
+	buttons and steps sit on top.
+	-->
+	<Frame name="ZygorForeverSkinChromeTemplate" useParentLevel="true" setAllPoints="true" virtual="true">
+		<KeyValues>
+			<KeyValue key="layoutType" value="ButtonFrameTemplateNoPortrait" type="string"/>
+		</KeyValues>
+		<Layers>
+			<Layer level="BACKGROUND" textureSubLevel="-6">
+				<Texture parentKey="Bg">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="2" y="-21"/>
+						<Anchor point="BOTTOMRIGHT" x="-2" y="2"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame parentKey="NineSlice" useParentLevel="true" setAllPoints="true" inherits="NineSliceCodeTemplate"/>
+			<!-- Raised above the nine-slice in Chrome.lua, like Blizzard's TitleContainer. -->
+			<Frame parentKey="TitleContainer">
+				<Size x="0" y="20"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" x="58" y="-1"/>
+					<Anchor point="TOPRIGHT" x="-58" y="-1"/>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString parentKey="TitleText" inherits="GameFontNormal" wordwrap="false">
+							<Anchors>
+								<Anchor point="TOP" x="0" y="-5"/>
+								<Anchor point="LEFT"/>
+								<Anchor point="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</Frame>
+			<!-- OnClick is set in Chrome.lua to run Zygor's own close handler. -->
+			<Button parentKey="CloseButton" inherits="UIPanelCloseButtonDefaultAnchors"/>
+		</Frames>
+	</Frame>
+
+	<!-- The player cast bar's background and frame, around Zygor's progress fill. -->
+	<Frame name="ZygorForeverSkinCastBarTemplate" useParentLevel="true" setAllPoints="true" virtual="true">
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture parentKey="Background" atlas="ui-castingbar-background" setAllPoints="true"/>
+			</Layer>
+		</Layers>
+		<Frames>
+			<!-- Raised above Zygor's fill in Chrome.lua. -->
+			<Frame parentKey="BorderFrame" setAllPoints="true">
+				<Layers>
+					<Layer level="OVERLAY">
+						<Texture parentKey="Border" atlas="ui-castingbar-frame">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="-1" y="2"/>
+								<Anchor point="BOTTOMRIGHT" x="1" y="-2"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+	</Frame>
+
+</Ui>

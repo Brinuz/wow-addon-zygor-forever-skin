@@ -1,0 +1,22 @@
+## Interface: 16001
+## Title: Zygor Forever Skin
+## Notes: Restyles the Zygor Guides Viewer to look like Blizzard's own windows.
+## Category: User Interface
+## IconAtlas: Professions-Slot-Frame
+## Author: brinuz
+## Version: 0.1.0
+## Dependencies: ZygorGuidesViewerForever
+## SavedVariables: ZygorForeverSkinDB
+## X-License: GPL-3.0-or-later
+
+# Files load in this order, each receiving (addonName, ns) as its `...`.
+# Core first: it creates the shared table, the saved settings and the events.
+Core.lua
+# Style registers the "blizzard" style in Zygor's skin registry.
+Style.lua
+Chrome.xml
+Chrome.lua
+Steps.lua
+ActionBar.lua
+Tabs.lua
+Settings.lua

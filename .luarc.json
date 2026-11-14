@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime.version": "Lua 5.1",
+  "workspace.library": [
+    "/home/bmonteiro/Games/battlenet/drive_c/Program Files (x86)/World of Warcraft/_forever_/BlizzardInterfaceCode/Interface/AddOns",
+    "/home/bmonteiro/Games/battlenet/drive_c/Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns/ZygorGuidesViewerForever"
+  ],
+  "workspace.checkThirdParty": false,
+  "workspace.maxPreload": 20000,
+  "workspace.preloadFileSize": 2000,
+  "diagnostics.globals": [
+    "ZygorForeverSkinDB",
+    "ZygorGuidesViewer",
+    "SLASH_ZYGORFOREVERSKIN1"
+  ],
+  "diagnostics.disable": [
+    "lowercase-global"
+  ]
+}
